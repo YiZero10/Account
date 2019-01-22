@@ -5,85 +5,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>知乎 -有问题上知乎</title>
+    <title>小明的账单</title>
 </head>
 
 <body>
-    <main>
-        <h1>知乎</h1>
-        <h3>注册知乎，发现更大的世界</h3>
-        <form action="https://taobao.com" method="POST">
-            <div>
-                <select name="usernum" id="num">
-                    <option value="1">中国+86</option>
-                    <option value="2">美国+1</option>
-                    <option value="3">日本+81</option>
-                    <option value="4">中国香港+852</option>
-                    <option value="5">中国澳门+853</option>
-                    <option value="6">中国台湾+886</option>
-                </select>
-                <input type="text" placeholder="手机号">
-            </div>
-            <div>
-                <input type="text" name="vericode" id="vericode" placeholder="输入6位短信验证码">
-                <a href="">发送短信验证码</a>
-                <div>
-                    <a href="">接收语音验证码</a>
-                </div>
-            </div>
+   <form action="/accounting" method="get">
+   <div>
+       <label for="cash">cash</label>
+       <input type="text" id ="cash" name="cash">
+   </div>
+   <div>
+    <label for="income">income</label>
+    <input type="text" id ="income" name="income">
+</div>
+<div>
+    <label for="rent">rent</label>
+    <input type="text" id ="rent" name="rent">
+</div>
+<div>
+    <label for="charges">charges</label>
+    <input type="text" id ="charges" name="charges">
+</div>
+<div>
+    <label for="eat">eat</label>
+    <input type="text" id ="eat" name="eat">
+</div>
+<div>
+    <button type="submit">Balance</button>
+</div>
 
-            <div>
-                <button type="submit">注册</button>
-            </div>
-        </form>
-        <div>
-            <span> 注册即代表同意</span>
-            <a href="https://www.zhihu.com/terms">《知乎协议》</a>
-            <a href="https://www.zhihu.com/term/privacy">《知乎隐私保护指引》</a>
-            <a href="https://www.zhihu.com/org/signup">注册机构号</a>
-        </div>
-        <div>
-            <span>已有账号？</span><a href="https://www.zhihu.com/signin?next=%2F">登录</a>
-        </div>
-        <div>
-            <button type="button">下载知乎app</button>
-        </div>
-    </main>
-    <footer>
-        <div>
-            <ul>
-                <li>
-                    <a href="https://zhuanlan.zhihu.com/">知乎专栏</a>
-                </li>
-                <li>
-                    <a href="https://www.zhihu.com/roundtable">圆桌</a>
-                </li>
-                <li>
-                    <a href="https://www.zhihu.com/explore">发现</a>
-                </li>
-                <li>
-                    <a href="https://www.zhihu.com/app/">移动应用</a>
-                </li>
-                <li>
-                    <a href="https://www.zhihu.com/contact">联系我们</a>
-                </li>
-                <li>
-                    <a href="https://app.mokahr.com/apply/zhihu/3819">来知乎工作</a>
-                </li>
-                <li>
-                    <a href="https://www.zhihu.com/org/signup">注册机构号</a>
-                </li>
-            </ul>
-        </div>
-        <div><span>© 2019 知乎</span><a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action;jsessionid=HrFurJH9UHrApINR90oKqF0pgzxoPLl3tHZ9JE4RkjfsjRoOKP85!-1249664274">京
-                ICP 证 110745 号</a>
-            <span>京公网安备 11010802010035 号</span><a href="https://zhstatic.zhihu.com/assets/zhihu/publish-license.jpg">出版物经营许可证</a>
-        </div>
-        <div><a href="https://zhuanlan.zhihu.com/p/51068775">侵权举报</a>
-            <a href="http://www.12377.cn/">网上有害信息举报专区</a>
-            <a href="https://www.zhihu.com/jubao">儿童色情信息举报专区</a>
-            <span>违法和不良信息举报：010-82716601</span>
-        </div>
-    </footer>
+</form>
 
 </body>
