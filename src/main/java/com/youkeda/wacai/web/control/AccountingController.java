@@ -24,8 +24,8 @@ public class AccountingController {
 
         records.add(record);
         String temp = "";
-        for (int index=0;index<records.size();index++) {
-             temp +="发生日期："+record.getCreateTime()+"<br>"+" 金额："+record.getAmount()+"<br>"+" 记账类型："+record.getType()+"<br>"+" 记账科目："+record.getCategory()+"<br>"+" 记账时间："+record.getTime()+"<br>";
+        for (AccountingRecord index:records) {
+            temp +="发生日期："+index.getCreateTime()+"<br>"+" 金额："+index.getAmount()+"<br>"+" 记账类型："+index.getType()+"<br>"+" 记账科目："+index.getCategory()+"<br>"+" 记账时间："+index.getTime()+"<br>";
         }
         return temp;
     }
