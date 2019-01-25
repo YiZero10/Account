@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 public class AccountingController {
 
-    List<AccountingRecord> records = new ArrayList<>();
+    private static List<AccountingRecord> records = new ArrayList<>();
 
     @RequestMapping(path = "/record")
     public String record(AccountingRecord record){
@@ -25,7 +25,11 @@ public class AccountingController {
         records.add(record);
         String temp = "";
         for (AccountingRecord index:records) {
-            temp +="发生日期："+index.getCreateTime()+"<br>"+" 金额："+index.getAmount()+"<br>"+" 记账类型："+index.getType()+"<br>"+" 记账科目："+index.getCategory()+"<br>"+" 记账时间："+index.getTime()+"<br>";
+            temp +="记录："+"发生日期："+index.getCreateTime()+"<br>"+
+                    " 金额："+index.getAmount()+"<br>"+
+                    " 记账类型："+index.getType()+"<br>"+
+                    " 记账科目："+index.getCategory()+"<br>"+
+                    " 记账时间："+index.getTime()+"<br>";
         }
         return temp;
     }
