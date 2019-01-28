@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>小明的账单</title>
 </head>
-<body>
-<form action="/record" method="POST">
-<input type="text" name="createTime" placeholder="发⽣⽇期，如2019-01-
-10">
-<br>
-<input type="text" name="amount" placeholder="金额">
-<br>
-<select name="type" id="type">
-    <option value="收入">收入</option>
-    <option value="支出">支出</option>
-</select>
-<br>
-<select name="category" id="category">
-    <option value="房租">房租</option>
-    <option value="水电">水电</option>
-    <option value="吃饭">吃饭</option>
-    <option value="请客吃饭">请客吃饭</option>
-    <option value="ktv">ktv</option>
-</select>
-<br>
-<button type="submit">记一笔</button>
 
-</form>
+<body>
+    <form action="/record" method="POST">
+        <div>
+            <input type="text" name="createTime" placeholder="发⽣⽇期，如2019-01-
+10">
+        </div>
+
+        <div>
+            <input type="text" name="amount" placeholder="金额">
+        </div>
+        <div>
+            <select name="type" id="type">
+                <option value="收入">收入</option>
+                <option value="支出">支出</option>
+            </select>
+        </div>
+
+        <div>
+            <select name="category" id="category">
+                <option value="房租">房租</option>
+                <option value="水电">水电</option>
+                <option value="吃饭">吃饭</option>
+                <option value="请客吃饭">请客吃饭</option>
+                <option value="ktv">ktv</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit">记一笔</button>
+        </div>
+
+    </form>
 </body>
+
 </html>
