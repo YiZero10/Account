@@ -7,15 +7,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>小明的账单</title>
 </head>
+
 <body>
     <form action="/pay" method="post">
-    <input type="text" name="amount" placeholder="金额">
-    <select name="payType" id="">
-        <option value="huabei">支付宝花呗</option>
-        <option value="baitiao">京东白条</option>
-        <option value="creditCard">信用卡</option>
-    </select>
-    <input type="text" name="stagesCount" placeholder="分期数">
-    <button type="submit">支 付</button>
+        <div>
+            <input type="text" name="amount" placeholder="金额">
+        </div>
+        <div>
+            <select name="payType" id="">
+                <option value="huabei">支付宝花呗</option>
+                <option value="baitiao">京东白条</option>
+                <option value="creditCard">信用卡</option>
+            </select>
+        </div>
+        <div>
+            <input type="text" name="stagesCount" placeholder="分期数">
+        </div>
+        <div>
+            <button type="submit">支 付</button>
+        </div>
     </form>
 </body>
