@@ -1,6 +1,9 @@
 package com.youkeda.wacai.web.control;
 
 import com.youkeda.wacai.web.model.*;
+import com.youkeda.wacai.web.service.FinanceService;
+import com.youkeda.wacai.web.service.impl.JdFinanceServiceImpl;
+import com.youkeda.wacai.web.service.impl.YuebaoFinanceServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,6 +48,21 @@ public class AccountingController {
         payinfos.add(creditCard);
     }
 
+    @RequestMapping(path = "/finance")
+    public FinanceInfo finance(@RequestParam("type") FinanceType type, @RequestParam("amount") double amount, @RequestParam("days") int days){
+
+        FinanceService financeService = null;
+
+        if(FinanceType.yuebao.equals(type)){
+            financeService = new YuebaoFinanceServiceImpl();
+        }else if(FinanceType.jd.equals(type)){
+            financeService = new JdFinanceServiceImpl();
+        }else{
+            return null;
+        }
+        return financeService.invest(amount,days);
+    }
+
     @RequestMapping(path = "/pay")
     public Payinfo pay(@RequestParam("amount") double amount, @RequestParam("payType")PayType payType, @RequestParam("stagesCount")int stagesCount){
 
@@ -83,12 +101,15 @@ public class AccountingController {
         records.add(record);
         String temp = "";
         for (AccountingRecord index:records) {
+            Date date = index.getTime();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//HH表示为24小时制
+
             temp =temp+"记录："+
                        "发生日期："+index.getCreateTime()+
                        " 金额："+index.getAmount()+
                        " 记账类型："+index.getType()+
                        " 记账科目："+index.getCategory()+
-                       " 记账时间："+index.getTime()+"<br>";
+                       " 记账时间："+sdf.format(date)+"<br>";
         }
         return temp;
     }
@@ -102,11 +123,14 @@ public class AccountingController {
                 filter(record->record.getAmount()>amount).collect(Collectors.toList());
 
         for (AccountingRecord index : filterd) {
+            Date date = index.getTime();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//HH表示为24小时制
+
             sb.append("发生时间:"+index.getCreateTime());
             sb.append(" 金额:"+index.getAmount());
             sb.append(" 类别:"+index.getType());
             sb.append(" 科目:"+index.getCategory());
-            sb.append(" 创建时间:"+index.getTime());
+            sb.append(" 创建时间:"+sdf.format(date));
             sb.append("<br>");
 
         }

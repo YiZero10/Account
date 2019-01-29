@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小明理财</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">小明开始理财啦</h1>
+            <h2 class="subtitle">
+                ⼩明⼯作半年左右，终于开始有⼀些存款了，于是乎就想着把存款拿出⼀部分来去理财。
+            </h2>
+        </div>
+    </section>
+    <nav class="level">
+        <div class="level-item has-text-centered">
+            <form action="/finance" method="post">
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-medium" type="text" name="amount" placeholder="理财金额">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <div class="select is-medium">
+                            <select name="type" id="">
+                                <option value="yuebao">余额宝</option>
+                                <option value="jd">京东小金库</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-medium" type="text" name="days" placeholder="理财天数">
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div class="control">
+                        <button class="button is-info" type="submit">理  财</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nav>
+</body>
+</html>
