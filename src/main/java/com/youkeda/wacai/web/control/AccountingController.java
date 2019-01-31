@@ -95,24 +95,24 @@ public class AccountingController {
         }
     }
 
-    @RequestMapping(path = "/query")
-    public List<AccountingRecord> query(){
-        return recordService.query();
-    }
-
     @RequestMapping(path = "/record")
-    public String record(AccountingRecord record){
+    public String record(AccountingRecord accountingRecordrecord){
 
-        if(record.getAmount()==0){
+        if(accountingRecordrecord.getAmount()==0){
             return "";
         }
 
         Date time = new Date();
-        record.setTime(time);
+        accountingRecordrecord.setTime(time);
 
         //调用方法
-        recordService.record(record);
+        recordService.record(accountingRecordrecord);
         return "记录成功！";
+    }
+
+    @RequestMapping(path = "/query")
+    public List<AccountingRecord> query(){
+        return recordService.query();
     }
 
     @RequestMapping(path = "/search")

@@ -86,6 +86,7 @@ public class RecordServiceImpl implements RecordService {
                 record.setCategory(row.getCell(2).getStringCellValue());
                 record.setCreateTime(row.getCell(3).getStringCellValue());
                 record.setAmount((int)row.getCell(4).getNumericCellValue());
+                records.add(record);
             }
         } catch (IOException e) {
             e.printStackTrace();
