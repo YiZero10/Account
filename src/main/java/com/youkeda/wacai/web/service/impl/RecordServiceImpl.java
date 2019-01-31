@@ -19,7 +19,7 @@ public class RecordServiceImpl implements RecordService {
 
     @Override
     public void record(AccountingRecord record) {
-        File file = new File("./record.xslx");
+        File file = new File("./record.xlsx");
         Workbook wb = null;
         Sheet sheet = null;
         if (file.exists()) {
@@ -50,7 +50,6 @@ public class RecordServiceImpl implements RecordService {
 
             //临时创建文件
             File newFile = new File(file + ".bak");
-
             OutputStream out = new FileOutputStream(newFile);
             wb.write(out);
 
@@ -65,7 +64,7 @@ public class RecordServiceImpl implements RecordService {
 
     @Override
     public List<AccountingRecord> query() {
-        File file = new File("./record.xlsx");
+        File file = new File("./record.xlsx.bak");
         List<AccountingRecord> records = new ArrayList<>();
         //如果文件不存在，直接返回数据
         if(!file.exists()){
