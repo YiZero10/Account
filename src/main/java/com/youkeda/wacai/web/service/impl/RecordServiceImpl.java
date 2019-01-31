@@ -52,6 +52,8 @@ public class RecordServiceImpl implements RecordService {
             File newFile = new File(file + ".bak");
             OutputStream out = new FileOutputStream(newFile);
             wb.write(out);
+            out.close();
+            wb.close();
 
             //删除老的文件
             file.deleteOnExit();
@@ -64,7 +66,7 @@ public class RecordServiceImpl implements RecordService {
 
     @Override
     public List<AccountingRecord> query() {
-        File file = new File("./record.xlsx.bak");
+        File file = new File("./record.xlsx");
         List<AccountingRecord> records = new ArrayList<>();
         //如果文件不存在，直接返回数据
         if(!file.exists()){
