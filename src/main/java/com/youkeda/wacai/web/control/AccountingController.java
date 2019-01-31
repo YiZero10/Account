@@ -2,7 +2,9 @@ package com.youkeda.wacai.web.control;
 
 import com.youkeda.wacai.web.model.*;
 import com.youkeda.wacai.web.service.FinanceService;
+import com.youkeda.wacai.web.service.RecordService;
 import com.youkeda.wacai.web.service.impl.JdFinanceServiceImpl;
+import com.youkeda.wacai.web.service.impl.RecordServiceImpl;
 import com.youkeda.wacai.web.service.impl.YuebaoFinanceServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +23,7 @@ public class AccountingController {
 
     private static List<AccountingRecord> records = new ArrayList<>();
     private static List<Payinfo> payinfos = new ArrayList<>();
+    private static RecordService recordService = new RecordServiceImpl();
 
     @PostConstruct
     public void init(){
@@ -92,26 +95,24 @@ public class AccountingController {
         }
     }
 
+    @RequestMapping(path = "/query")
+    public List<AccountingRecord> query(){
+        return recordService.query();
+    }
+
     @RequestMapping(path = "/record")
     public String record(AccountingRecord record){
+
+        if(record.getAmount()==0){
+            return "";
+        }
 
         Date time = new Date();
         record.setTime(time);
 
-        records.add(record);
-        String temp = "";
-        for (AccountingRecord index:records) {
-            Date date = index.getTime();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//HH表示为24小时制
-
-            temp =temp+"记录："+
-                       "发生日期："+index.getCreateTime()+
-                       " 金额："+index.getAmount()+
-                       " 记账类型："+index.getType()+
-                       " 记账科目："+index.getCategory()+
-                       " 记账时间："+sdf.format(date)+"<br>";
-        }
-        return temp;
+        //调用方法
+        recordService.record(record);
+        return "记录成功！";
     }
 
     @RequestMapping(path = "/search")
